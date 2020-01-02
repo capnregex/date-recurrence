@@ -7,18 +7,18 @@ class Date
       class_attribute :origin, default: Date.new(2018, 1, 7)
       class_attribute :duration, default: 14 # days
       delegate :origin, :duration, :new, to: :class
-      attr_reader :first
+      attr_reader :starts
 
       def initialize(date=nil)
-        @first = (date.to_date || Time.zone.today).beginning_of_pay_period
+        @starts = (date.to_date || Time.zone.today).beginning_of_pay_period
       end
 
-      def last
-        @last ||= first.days_until(duration - 1)
+      def ends
+        @ends ||= starts.days_since(duration - 1)
       end
 
       def range
-        @range ||= first..last
+        @range ||= starts..ends
       end
 
       def next
@@ -26,11 +26,11 @@ class Date
       end
 
       def prev
-        new(first.days_ago(duration))
+        new(starts.days_ago(duration))
       end
 
       def day(index)
-        first.days_until(index)
+        starts.days_since(index)
       end
 
       def days
