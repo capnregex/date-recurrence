@@ -35,6 +35,10 @@ RSpec.describe Date::Recurrence::PayPeriod::Calculations do
       expect(payperiod.range).to eq(pay_period_starts..pay_period_ends)
     end
     it ".day" do
+      expect(payperiod.day(0)).to eq(pay_period_starts)
+      expect(payperiod.day(13)).to eq(pay_period_ends)
+      expect(payperiod.day(-14)).to eq(pay_period_starts)
+      expect(payperiod.day(-1)).to eq(pay_period_ends)
       expect(payperiod.day(10)).to eq(date)
     end
     it ".cover?" do

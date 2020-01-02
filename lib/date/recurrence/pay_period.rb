@@ -30,7 +30,11 @@ class Date
       end
 
       def day(index)
-        starts.days_since(index)
+        if index.negative? 
+          ends.days_since(index + 1)
+        else
+          starts.days_since(index)
+        end
       end
 
       def days
