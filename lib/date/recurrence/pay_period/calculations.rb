@@ -6,7 +6,7 @@ require 'active_support/core_ext/date/calculations' # beginning_of_week
 require 'active_support/core_ext/module/attribute_accessors' # cattr_ mattr_
 
 class Date
-  module Recurrence
+  class Recurrence
     class PayPeriod
       module Calculations
         def pay_period_origin

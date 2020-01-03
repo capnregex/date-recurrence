@@ -1,5 +1,5 @@
 class Date
-  module Recurrence
+  class Recurrence
     class Error < StandardError
     end
   end

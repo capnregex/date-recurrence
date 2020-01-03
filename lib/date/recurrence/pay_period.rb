@@ -1,6 +1,6 @@
 require 'date/recurrence/pay_period/calculations'
 class Date
-  module Recurrence
+  class Recurrence
     class PayPeriod
       # @NOTE: 01/07/2018 is the starting date for pay periods in 2018
       # (https://www.nfc.usda.gov/Publications/Forms/pay_period_calendar.php has pay period dates)
