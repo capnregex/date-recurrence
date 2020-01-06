@@ -46,8 +46,7 @@ RSpec.describe Date::Recurrence do
       expect(recurrence.days_to_origin(origin.advance(days: 75))).to eq(75)
     end
     it ".days_to_period_start" do
-      binding.pry
-      expect(recurrence.days_to_period_start(newyears)).to eq(75)
+      expect(recurrence.days_to_period_start(newyears)).to eq(3)
     end
     context ".period" do
       let(:period) { recurrence.period_for(starting) }
